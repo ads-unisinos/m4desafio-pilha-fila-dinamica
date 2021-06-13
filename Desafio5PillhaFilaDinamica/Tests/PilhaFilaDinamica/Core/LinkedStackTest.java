@@ -1,4 +1,4 @@
-package PilhaFilaDinamica;
+package PilhaFilaDinamica.Core;
 
 import PilhaFilaDinamica.Core.LinkedStack;
 import org.junit.Test;
@@ -29,7 +29,7 @@ public class LinkedStackTest
     }
 
     @Test
-    public void push_WhenOneElementInStack_NumElementsTwo()
+    public void push_WhenTwoElementInStack_NumElementsTwo()
     {
         int element1 = 1;
         int element2 = 4;
@@ -94,10 +94,16 @@ public class LinkedStackTest
         assertEquals(element2, actualElement);
     }
 
-//    @Test
-//    public void top_WhenPopEmptyStack_ThrowUnderFlowException()
-//    {
-//        var element = linkedStack.pop();
-//        assert(new InvalidStackOperationException(), linkedStack.pop());
-//    }
+    @Test
+    public void toString_WhenPushElements_PrintStack()
+    {
+        linkedStack.push(1);
+        linkedStack.push(2);
+        linkedStack.push(3);
+
+        System.out.println(linkedStack);
+
+        assertNotNull(linkedStack);
+
+    }
 }

@@ -1,15 +1,25 @@
 package PilhaFilaDinamica.Core;
 
-public class LinkedQueue<E> implements List<E>
+import PilhaFilaDinamica.Exceptions.OverflowException;
+import PilhaFilaDinamica.Exceptions.UnderflowException;
+
+public class LinkedQueue<E> implements Queue<E>
 {
-    @Override
-    public int numElements() {
-        return 0;
+    private Node<E> head;
+    private Node<E> tail;
+    private int numElements;
+
+    public LinkedQueue() 
+    {
+        numElements = 0;
+        head = null;
+        tail = null;
     }
+
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return head == null;
     }
 
     @Override
@@ -18,22 +28,81 @@ public class LinkedQueue<E> implements List<E>
     }
 
     @Override
-    public void insert(E element, int pos) {
-
+    public int numElements(){
+        return numElements;
     }
 
     @Override
-    public E remove(int pos) {
-        return null;
+    public void enqueue(E element) throws NullPointerException, OverflowException
+    {
+        if(element == null) throw new NullPointerException();
+
+        Node<E> newNode = new Node<>(element);
+
+        if(isEmpty())        {
+            head = tail = newNode;
+        }
+        else{
+            tail.setNext(newNode);
+            tail = newNode;
+        }
+        numElements++;
     }
 
     @Override
-    public E get(int pos) {
-        return null;
+    public E dequeue() throws UnderflowException
+    {
+        if(isEmpty()) throw  new UnderflowException();
+
+        E element = head.getElement();
+
+        if(head == tail)
+        {
+            head = tail = null;
+        }
+        else{
+            head = head.getNext();
+        }
+
+        numElements--;
+        return element;
     }
 
     @Override
-    public int search(E element) {
-        return 0;
+    public E front() throws UnderflowException
+    {
+        if(isEmpty()) throw  new UnderflowException();
+        return head.getElement();
+    }
+
+    @Override
+    public E back() throws UnderflowException
+    {
+        if(isEmpty()) throw  new UnderflowException();
+        return tail.getElement();
+    }
+
+    @Override
+    public String toString()
+    {
+        if(isEmpty())
+        {
+            return "[ ]";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        Node<E> current = head;
+
+        while (current != null) {
+            sb.append( current.getElement().toString() );
+            sb.append(" - ");
+            sb.append(current.getNext());
+            sb.append(" ");
+
+            current = current.getNext();
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
