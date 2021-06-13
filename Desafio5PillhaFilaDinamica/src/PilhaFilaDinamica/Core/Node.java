@@ -1,4 +1,4 @@
-package PilhaFilaDinamica;
+package PilhaFilaDinamica.Core;
 
 public class Node<E>
 {

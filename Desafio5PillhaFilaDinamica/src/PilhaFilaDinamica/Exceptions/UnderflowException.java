@@ -1,4 +1,4 @@
-package PilhaFilaDinamica;
+package PilhaFilaDinamica.Exceptions;
 
 public class UnderflowException extends RuntimeException
 {

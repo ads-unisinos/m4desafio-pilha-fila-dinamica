@@ -1,4 +1,8 @@
-package PilhaFilaDinamica;
+package PilhaFilaDinamica.Core;
+
+import PilhaFilaDinamica.Exceptions.OverflowException;
+import PilhaFilaDinamica.Exceptions.UnderflowException;
+
 /**
  * Interface que define o comportamento de uma Pilha.
  */

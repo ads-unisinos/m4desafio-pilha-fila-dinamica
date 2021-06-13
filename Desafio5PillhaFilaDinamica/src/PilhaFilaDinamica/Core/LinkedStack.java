@@ -1,4 +1,8 @@
-package PilhaFilaDinamica;
+package PilhaFilaDinamica.Core;
+
+import PilhaFilaDinamica.Exceptions.InvalidStackOperationException;
+import PilhaFilaDinamica.Exceptions.OverflowException;
+import PilhaFilaDinamica.Exceptions.UnderflowException;
 
 public class LinkedStack<E> implements Stack<E>
 {

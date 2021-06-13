@@ -1,4 +1,8 @@
-package PilhaFilaDinamica;
+package PilhaFilaDinamica.Core;
+
+import PilhaFilaDinamica.Core.Stack;
+import PilhaFilaDinamica.Exceptions.OverflowException;
+import PilhaFilaDinamica.Exceptions.UnderflowException;
 
 public class StaticStack<E> implements Stack<E> {
 	
